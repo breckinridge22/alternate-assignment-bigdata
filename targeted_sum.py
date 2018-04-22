@@ -9,8 +9,17 @@ Note: you CANNOT use two nested loops.
 
 
 def targeted_sum(l, t):
-    # implement
-    return True
+    # could iterate through the list
+    nums = {}
+    # for each element in l
+    for i in l:
+        # if the element that can be added to i is in the set of things already visited
+        # return True
+        d = t - i
+        if d in nums:
+            return True
+        nums.add(d)
+    return False
 
 
 def simple_targeted_sum(l, t):
