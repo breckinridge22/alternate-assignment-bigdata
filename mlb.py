@@ -78,6 +78,22 @@ where yearid = '2000');'''
 
 def main():
     db = DB('mlb')
+
+    test_q1()
+    test_q2()
+    test_q3()
+    test_q4()
+    test_q5()
+    test_q6()
+    test_q7()
+    test_q8()
+    test_q9()
+    test_q10()
+    test_q11()
+    test_q12()
+    test_q13()
+    test_q14()
+
     for q in [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]:
         for line in db.query(q):
             print line[0]
@@ -162,4 +178,18 @@ def test_q14():
 
 
 if __name__ == '__main__':
+    # test_q1()
+    # test_q2()
+    # test_q3()
+    # test_q4()
+    # test_q5()
+    # test_q6()
+    # test_q7()
+    # test_q8()
+    # test_q9()
+    # test_q10()
+    # test_q11()
+    # test_q12()
+    # test_q13()
+    # test_q14()
     main()
