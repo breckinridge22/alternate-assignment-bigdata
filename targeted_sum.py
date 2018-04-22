@@ -16,9 +16,10 @@ def targeted_sum(l, t):
         # if the element that can be added to i is in the set of things already visited
         # return True
         d = t - i
+        print(d)
         if d in nums:
             return True
-        nums.add(d)
+        nums.add(i)
     return False
 
 
