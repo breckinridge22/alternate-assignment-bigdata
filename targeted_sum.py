@@ -10,7 +10,7 @@ Note: you CANNOT use two nested loops.
 
 def targeted_sum(l, t):
     # could iterate through the list
-    nums = {}
+    nums = set()
     # for each element in l
     for i in l:
         # if the element that can be added to i is in the set of things already visited
