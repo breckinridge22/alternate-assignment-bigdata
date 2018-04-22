@@ -44,31 +44,36 @@ You will need to join fielding with salaries. Also consider using a HAVING claus
 
 q1 = 'select count(*) from allstarfull;'
 
-q2 = 'select 1'
+q2 = 'select max(hr) from batting'
 
-q3 = 'select 1'
+q3 = 'select playerid from batting where hr = (select max(hr) from batting)'
 
-q4 = 'select 1'
+q4 = 'select count(distinct lgid) from batting;'
 
-q5 = "select 1"
+q5 = "select avg(cast(h as real) / ab) from batting where playerid = 'bondsba01';"
 
-q6 = 'select 1'
+q6 = 'select teamid, sum(h) from batting where yearid = 2000 group by teamid order by sum  limit 1 ;'
 
-q7 = '''select 1'''
+q7 = '''select teamid, avg(a) from (select cast(h as real) / ab as a, teamid from batting where yearid = 2000 and ab > 0)
+T group by teamid order by avg desc;'''
 
-q8 = "select 1"
+q8 = "select count(*) from allstarfull where teamid = 'SFN' and yearid = '2000'"
 
-q9 = "select 1"
+q9 = "select yearid from allstarfull where teamid = 'SFN' group by yearid order by count(*)  desc limit 1;"
 
-q10 = "select 1"
+q10 = "select avg(salary) from salaries where yearid = '2000';"
 
-q11 = '''select 1'''
+q11 = '''select count(*) from (select pos from fielding f, salaries s
+where s.playerid = f.playerid and f.yearid = '2000' and s.yearid  = '2000' group by
+pos having avg(salary) > 2000000) T'''
 
-q12 = "select 1"
+q12 = "select e from fielding where playerid = 'bondsba01' and yearid = '2000' and e > 0"
 
-q13 = "select 1"
+q13 = '''select avg(salary) from salaries s, allstarfull a where s.playerid = a.playerid and s.yearid = '2000' and
+a.yearid = '2000';'''
 
-q14 = '''select 1'''
+q14 = '''select avg(salary) from salaries where yearid = '2000' and playerid NOT IN (select playerid from allstarfull
+where yearid = '2000');'''
 
 
 def main():
